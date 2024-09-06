@@ -118,7 +118,10 @@ registerSubmit.addEventListener("click", () => {
   } else if (password.value !== confirmPassword.value) {
     alert("Passwords do not match");
   } else {
-    if (stroreUsers()) convertRegisterToLogin();
+    if (stroreUsers()) {
+      convertRegisterToLogin();
+      password.value=confirmPassword.value=firstName.value=lastName.value=email.value='';
+    }
   }
 });
 
@@ -180,7 +183,9 @@ function Login() {
     showUserDetails(user);
     localStorage.setItem("isUser", true);
     localStorage.setItem("user", JSON.stringify(user));
+    emailInput.value=passwordInput.value='';
     userInfoContainer.classList.remove("hidden");
+    document.querySelector(".login-error").classList.add("hidden")
   } else {
     document.querySelector(".login-error").classList.remove("hidden");
   }
