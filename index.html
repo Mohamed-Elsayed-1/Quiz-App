@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="form-content">
+          <div class="register-container">
+            <div class="progress">
+              <div class="progress-bar">
+                <span></span>
+              </div>
+              <span class="step-progress step-active">1</span>
+              <span class="step-progress">2</span>
+              <span class="step-progress">3</span>
+            </div>
+            <h1>Sign up for free</h1>
+            <p>
+              Already have an account ? <span class="login-overlay">Login</span>
+            </p>
+            <form action="#" class="register" onsubmit="stopSupmit()">
+              <div class="register-content-step">
+                <div class="step-register">
+                  <div class="input-field">
+                    <label for="firstName">
+                      <i class="fa-regular fa-user"></i>
+                    </label>
+
+                    <input
+                      type="text"
+                      placeholder="First Name"
+                      name="firstName"
+                      id="firstName"
+                      required
+                      class="firstName"
+                    />
+                  </div>
+                  <div class="input-field">
+                    <label for="lastName">
+                      <i class="fa-regular fa-user"></i>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Last Name"
+                      name="lastName"
+                      id="lastName"
+                      required
+                      class="lastName"
+                    />
+                  </div>
+                  <a class="btn next-btn-1">Next</a>
+                </div>
+              </div>
+              <div class="register-content-step hidden">
+                <div class="step-register">
+                  <div class="input-field">
+                    <label for="email">
+                      <i class="fa-regular fa-envelope"></i>
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      name="email"
+                      id="email"
+                      required
+                      class="email"
+                    />
+                  </div>
+                  <div class="input-field">
+                    <label for="image">
+                      <i class="fa-regular fa-image"></i>
+                    </label>
+                    <input
+                      type="file"
+                      name="image"
+                      id="image"
+                      style="font-size: 1.6rem"
+                    />
+                  </div>
+                  <div>
+                    <a class="btn prev-btn">Prev</a>
+                    <a class="btn next-btn-2" style="margin-left: 100px"
+                      >Next</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="register-content-step hidden">
+                <div class="step-register">
+                  <div class="input-field">
+                    <label for="password">
+                      <i class="fa-solid fa-lock"></i>
+                    </label>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      name="password"
+                      id="password"
+                      required
+                      class="password"
+                    />
+                  </div>
+                  <div class="input-field">
+                    <label for="confirmPassword">
+                      <i class="fa-solid fa-lock"></i>
+                    </label>
+                    <input
+                      type="password"
+                      placeholder="Confirm password"
+                      name="confirmPassword"
+                      class="confirmPassword"
+                      id="confirmPassword"
+                      style="font-size: 1.6rem"
+                    />
+                  </div>
+                  <div>
+                    <a class="btn prev-btn">Prev</a>
+                    <a class="btn register-submit" style="margin-left: 80px"
+                      >Submit</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="login-container hidden">
+            <h1>Sign In</h1>
+            <p>Don`t have an account <span class="sign-up">Sign Up</span></p>
+            <form action="#" class="register" onsubmit="stopSupmit()">
+              <div class="register-content-step">
+                <span class="login-error hidden"
+                  >Invalid username or password</span
+                >
+                <div class="step-register">
+                  <div class="input-field">
+                    <label for="email-login">
+                      <i class="fa-regular fa-envelope"></i>
+                    </label>
+
+                    <input
+                      type="text"
+                      placeholder="Email"
+                      name="email"
+                      id="email-login"
+                      required
+                      class="email-login"
+                    />
+                  </div>
+                  <div class="input-field">
+                    <label for="password-login">
+                      <i class="fa-solid fa-lock"></i>
+                    </label>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      name="password"
+                      id="password-login"
+                      required
+                      class="password-login"
+                    />
+                  </div>
+                  <a class="btn btn-login">Login</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="overlay">
+          <div class="overlay-register overlay-register-one">
+            <h1>Welcome</h1>
+            <h3>Start Your Journey</h3>
+            <p>Create Your Account</p>
+            <img src="images/learning-concept-illustration.png" alt="" />
+          </div>
+          <div class="overlay-register overlay-register-two hidden">
+            <h1>Welcome Back!</h1>
+            <h3>Start Your Journey</h3>
+            <p>Login with your personal info</p>
+            <img src="images/multitasking-concept-illustration.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="user-info hidden">
+      <img src="images/user-png-33842.png" alt="" class="user-image" />
+      <h2 class="user-name-box"></h2>
+      <p class="email-box"></p>
+      <h3>High Score : <span class="high-score"></span></h3>
+      <button class="btn btn-logout">Logout</button>
+      <div class="flags hidden"></div>
+      <a class="arrow-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+    </div>
+    <div class="container home-page-container hidden">
+      <div class="home-page">
+        <div class="content-box">
+          <p class="text-box">
+            Welcome to ME Exam,
+            <br />
+            We Wish you success as you embark on this assessment. <br />
+            Begin confidently & do your best!
+          </p>
+          <button class="btn start-btn">Start Exam >></button>
+        </div>
+        <div class="image">
+          <img src="images/exams-concept-illustration.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="container exam-page hidden">
+      <div class="quiz-app">
+        <div class="time-range">
+          <span></span>
+        </div>
+        <div class="quiz-info">
+          <div class="count">Questions Count: <span></span></div>
+          <div class="countdown"></div>
+        </div>
+        <div class="quiz-area"></div>
+        <div class="answers-area"></div>
+        <div class="buttons">
+          <button class="prev-answer btn hidden">Prev</button>
+          <button class="flag-btn btn">
+            <i class="fa-regular fa-flag"></i>
+          </button>
+          <button class="next-answer btn">Next</button>
+          <button class="submit btn hidden">Submit</button>
+        </div>
+        <div class="bullets">
+          <div class="spans"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container lost-page hidden">
+      <div class="content">
+        <p>Hi <span class="display-name"></span></p>
+        <p>Your score is 10 / <span class="display-score"></span> 😥</p>
+        <button class="btn new-game">New Game</button>
+      </div>
+      <img src="images/man-checking-list-background.png" alt="" />
+    </div>
+    <div class="container win-page a-exam hidden">
+      <div class="content">
+        <p>Hi <span class="display-name"></span></p>
+        <p>Congratulations</p>
+        <p>Your score is 10 / <span class="display-score"></span></p>
+        <button class="btn new-game">New Game</button>
+      </div>
+      <img src="images/people-celebrating-together-concept.png" alt="" />
+    </div>
+    <div class="container time hidden">
+      <div class="content">
+        <div class="time-box">
+          <span>00 : </span>
+          <span class="time-down">00</span>
+        </div>
+        <p>Sorry, Your time is out 😥</p>
+        <button class="btn new-game">New Game</button>
+      </div>
+      <img src="images/time-management-concept-people-hourglass.png" alt="" />
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
