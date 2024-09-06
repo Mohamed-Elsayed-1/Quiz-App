@@ -339,9 +339,9 @@ async function getQuestions() {
       userInfoContainer.classList.remove("side-user-info");
       userInfoContainer.classList.remove("left-100");
       if(timeFlage){
-        TimeEnd();
         container[5].classList.remove("hidden");
         container[2].classList.add("hidden");
+        TimeEnd();
         timeFlage=false;
       }
       else if (totalScore < 10) {
