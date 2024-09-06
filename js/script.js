@@ -21,7 +21,7 @@ const imageInput = document.querySelector("#image");
 const overlayRegister = document.querySelectorAll(".overlay-register");
 const isUser = localStorage.getItem("isUser");
 
-let timerRange,timer;
+let timerRange, timer;
 
 let curIndex = 0,
   myAnswers = [],
@@ -41,7 +41,7 @@ if (isUser == "true") {
   clearInterval(timer);
 }
 
-logOut.addEventListener('click',()=>{
+logOut.addEventListener("click", () => {
   localStorage.removeItem("isUser");
   userInfoContainer.classList.remove("side-user-info");
   userInfoContainer.classList.remove("left-100");
@@ -52,7 +52,7 @@ logOut.addEventListener('click',()=>{
   });
   userInfoContainer.classList.add("hidden");
   container[0].classList.remove("hidden");
-})
+});
 
 nextButtonOne.addEventListener("click", function () {
   if (firstName.value.length < 3) {
@@ -96,7 +96,7 @@ function stroreUsers() {
     email: email.value,
     password: password.value,
     image,
-    highScore: 0
+    highScore: 0,
   };
   const userExists = users.some(
     (existingUser) => existingUser.email === user.email
@@ -120,7 +120,12 @@ registerSubmit.addEventListener("click", () => {
   } else {
     if (stroreUsers()) {
       convertRegisterToLogin();
-      password.value=confirmPassword.value=firstName.value=lastName.value=email.value='';
+      password.value =
+        confirmPassword.value =
+        firstName.value =
+        lastName.value =
+        email.value =
+          "";
     }
   }
 });
@@ -183,9 +188,9 @@ function Login() {
     showUserDetails(user);
     localStorage.setItem("isUser", true);
     localStorage.setItem("user", JSON.stringify(user));
-    emailInput.value=passwordInput.value='';
+    emailInput.value = passwordInput.value = "";
     userInfoContainer.classList.remove("hidden");
-    document.querySelector(".login-error").classList.add("hidden")
+    document.querySelector(".login-error").classList.add("hidden");
   } else {
     document.querySelector(".login-error").classList.remove("hidden");
   }
@@ -217,29 +222,29 @@ function stopSupmit(event) {
   return false;
 }
 
-tryAgain.forEach(el=>{
-  el.addEventListener("click",  ()=>{
-    startGame()
+tryAgain.forEach((el) => {
+  el.addEventListener("click", () => {
+    startGame();
   });
-})
-
-startExam.addEventListener("click", ()=>{
-  startGame()
 });
 
-function startGame (){
+startExam.addEventListener("click", () => {
+  startGame();
+});
+
+function startGame() {
   container[1].classList.add("hidden");
   container[2].classList.remove("hidden");
   userInfoContainer.classList.add("side-user-info");
   clearInterval(timerRange);
   clearInterval(timer);
-  countDown();
   curIndex = 0;
   myAnswers = [];
   qflag = [];
   totalScore = 0;
   timeFlage = false;
-  getQuestions()
+  countDown();
+  getQuestions();
 }
 
 document.querySelector(".arrow-btn").addEventListener("click", () => {
@@ -254,7 +259,6 @@ document.querySelector(".arrow-btn").addEventListener("click", () => {
 
 // exam section
 
-
 const countSpan = document.querySelector(".count span");
 const bulletsSpanContainer = document.querySelector(".bullets .spans");
 const quizArea = document.querySelector(".quiz-area");
@@ -263,7 +267,6 @@ const nextAnswer = document.querySelector(".next-answer");
 const prevAnswer = document.querySelector(".prev-answer");
 const submitAnswer = document.querySelector(".submit");
 const flagBtn = document.querySelector(".flag-btn");
-const qSubmitBtn = document.querySelector(".submit");
 const answers = document.getElementsByName("question");
 
 async function getQuestions() {
@@ -330,7 +333,7 @@ async function getQuestions() {
       deleteFlags();
       showFlags(data);
     };
-    qSubmitBtn.addEventListener("click", () => {
+    submitAnswer.addEventListener("click", () => {
       clearInterval(timerRange);
       clearInterval(timer);
       const flag = document.querySelectorAll(".flags .flag");
@@ -340,16 +343,13 @@ async function getQuestions() {
       checkAnswer(data);
       const displayName = document.querySelectorAll(".display-name");
       const displayScore = document.querySelectorAll(".display-score");
-      console.log(totalScore);
       userInfoContainer.classList.remove("side-user-info");
       userInfoContainer.classList.remove("left-100");
-      if(timeFlage){
+      if (timeFlage) {
         container[5].classList.remove("hidden");
         container[2].classList.add("hidden");
         TimeEnd();
-        timeFlage=false;
-      }
-      else if (totalScore < 10) {
+      } else if (totalScore < 10) {
         container[3].classList.remove("hidden");
         container[2].classList.add("hidden");
         displayName[0].innerHTML = `${user.firstName} ${user.lastName}`;
@@ -360,15 +360,16 @@ async function getQuestions() {
         displayName[1].innerHTML = `${user.firstName} ${user.lastName}`;
         displayScore[1].innerHTML = `${totalScore}`;
       }
-      if(user.highScore < totalScore){
+
+      if (user.highScore < totalScore) {
         let curUser;
-        users.map(el=>{
-          if(el.email==user.email){
+        users.map((el) => {
+          if (el.email == user.email) {
             el.highScore = totalScore;
             curUser = el;
           }
-        })
-        showUserDetails(curUser)
+        });
+        showUserDetails(curUser);
         localStorage.setItem("users", JSON.stringify(users));
         localStorage.setItem("user", JSON.stringify(curUser));
       }
@@ -494,9 +495,9 @@ function countDown() {
     timeRangeCounter.innerHTML = `${parseInt((startDuration / 60) * 100)}%`;
     countdown.textContent = duration;
     if (duration === 0) {
-      clearInterval(timerRange);
-      timeFlage=true;
+      timeFlage = true;
       submitAnswer.click();
+      clearInterval(timerRange);
     }
   }, 1000);
 }
@@ -517,6 +518,3 @@ function TimeEnd() {
     }
   }, 50);
 }
-
-
-
